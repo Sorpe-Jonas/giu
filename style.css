@@ -17,6 +17,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: auto; /* Permite rolar a página se o conteúdo for maior que a tela */
+    padding-bottom: 20px; /* Adiciona um pouco de espaço para rolagem no final */
 }
 
 .content {
@@ -26,7 +28,8 @@ body {
     justify-content: center;
     text-align: center;
     position: relative;
-    padding: 20px; /* Adiciona espaçamento para uma melhor visualização */
+    padding: 20px;
+    min-height: 100%; /* Garante que a altura mínima da página seja 100% */
 }
 
 .message {
@@ -34,7 +37,7 @@ body {
     text-align: center;
     opacity: 0;
     transition: opacity 3s ease-in-out;
-    margin: 10px; /* Espaçamento entre as mensagens */
+    margin: 10px;
 }
 
 .hidden {
@@ -43,25 +46,11 @@ body {
 
 @media (max-width: 768px) {
     body {
-        display: block; /* Altera para block no celular para facilitar o scroll */
-        height: auto; /* Permite o conteúdo rolar */
-        overflow-y: scroll; /* Permite o scroll na página no celular */
-        padding-bottom: 20px; /* Adiciona um pouco de espaço no final para facilitar a rolagem */
+        padding: 20px; /* Espaço adicional para melhorar a experiência no celular */
     }
 
     .message {
         font-size: 1.5rem; /* Ajusta o tamanho da fonte para dispositivos móveis */
-    }
-}
-
-@keyframes animateStars {
-    0% {
-        opacity: 0.5;
-    }
-    50% {
-        opacity: 0.8;
-    }
-    100% {
-        opacity: 0.5;
+        margin: 15px 0; /* Ajusta o espaçamento entre as mensagens */
     }
 }
