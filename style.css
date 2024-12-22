@@ -7,8 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     color: white;
-    height: 100%;
-    overflow-y: auto; /* Permite o scroll na vertical */
+    height: 100vh; /* Garante que a altura seja 100% da tela */
     background-color: #000;
     position: relative;
     background-image: url('https://example.com/sky-image.jpg'); /* Substitua pela URL da sua imagem de céu estrelado */
@@ -25,10 +24,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
     text-align: center;
     position: relative;
-    padding: 20px; /* Adiciona um pequeno espaçamento para melhorar o layout em telas pequenas */
+    padding: 20px; /* Adiciona espaçamento para uma melhor visualização */
 }
 
 .message {
@@ -36,7 +34,7 @@ body {
     text-align: center;
     opacity: 0;
     transition: opacity 3s ease-in-out;
-    margin: 10px; /* Espaço entre as mensagens */
+    margin: 10px; /* Espaçamento entre as mensagens */
 }
 
 .hidden {
@@ -44,13 +42,15 @@ body {
 }
 
 @media (max-width: 768px) {
-    .message {
-        font-size: 1.5rem; /* Ajusta o tamanho da fonte para dispositivos menores */
+    body {
+        display: block; /* Altera para block no celular para facilitar o scroll */
+        height: auto; /* Permite o conteúdo rolar */
+        overflow-y: scroll; /* Permite o scroll na página no celular */
+        padding-bottom: 20px; /* Adiciona um pouco de espaço no final para facilitar a rolagem */
     }
 
-    body {
-        align-items: flex-start; /* Faz com que o conteúdo seja centralizado no topo para dispositivos móveis */
-        justify-content: flex-start;
+    .message {
+        font-size: 1.5rem; /* Ajusta o tamanho da fonte para dispositivos móveis */
     }
 }
 
